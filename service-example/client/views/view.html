@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript" src="/bundle.js" charset="utf-8"></script>
+
+  <link rel="stylesheet" href="/viewer-assets/css/normalize.min.css">
+  <link rel="stylesheet" href="/viewer-assets/css/viewercontrol.css">
+  <link rel="stylesheet" href="/viewer-assets/css/viewer.css">
+
+  <script src="//pcc-assets.accusoft.com/v10.5/js/viewercontrol.js"></script>
+  <script src="//pcc-assets.accusoft.com/v10.5/js/viewer.js"></script>
+
+  <script src="/viewer-assets/js/underscore.min.js"></script>
+  <script src="/viewer-assets/js/jquery.hotkeys.min.js"></script>
+
+  <script type="text/javascript">
+    var viewingSessionId = '{{ viewingSessionId }}';
+    var pluginOptions = {
+      documentID: viewingSessionId, // from controller
+      language: JSON.parse(languageItems), // from bundle.js
+      template: htmlTemplates, // from bundle.js
+      imageHandlerUrl: '/pcc',
+      uiElements: {
+        fullScreenOnInit: true
+      }
+    };
+
+    $(document).ready(function () {
+      $("#viewer1").pccViewer(pluginOptions).viewerControl;
+    });
+  </script>
+</head>
+<body>
+  <div id="viewer1"></div>
+</body>
+</html>
